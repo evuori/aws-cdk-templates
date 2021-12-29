@@ -1,8 +1,9 @@
 {
-  "name": "aws-cdk-templates",
+  "name": "@rocktemplates/aws-cdk-templates",
+  "description": "Collection of awesome project types for setting up AWS CDK-based apps with Typescript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/erno.vuori/aws-cdk-templates.git"
+    "url": "https://github.com/evuori/aws-cdk-templates.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -54,9 +55,21 @@
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
   },
+  "peerDependencies": {
+    "projen": "^0.46.9"
+  },
   "bundledDependencies": [],
+  "keywords": [
+    "aws",
+    "cdk",
+    "projen",
+    "typescript"
+  ],
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "testMatch": [

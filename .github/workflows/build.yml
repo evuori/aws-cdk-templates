@@ -42,10 +42,7 @@ jobs:
         if: always()
         with:
           name: build-artifact
-          path: |-
-            .
-            !.git
-            !node_modules
+          path: dist
   update-status:
     needs:
       - build
@@ -80,7 +77,12 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: build-artifact
+          path: dist
+      - name: Prepare Repository
+        run: mv dist .repo
       - name: Install Dependencies
-        run: yarn install --check-files --frozen-lockfile
+        run: cd .repo && yarn install --check-files --frozen-lockfile
       - name: Create js artifact
-        run: npx projen package:js
+        run: cd .repo && npx projen package:js
+      - name: Collect js Artifact
+        run: mv .repo/dist dist
